@@ -1,13 +1,6 @@
 name: Daily paper radar
 
 on:
-  push:
-    branches: ["main"]
-    paths-ignore:
-      - "content/papers/**"
-      - "static/data/paper-radar/**"
-      - "static/paper-radar.xml"
-      - "data/processed_papers.json"
   schedule:
     # 21:17 UTC = 06:17 JST the following day. Avoids the busy top of the hour.
     - cron: "17 21 * * *"
@@ -22,10 +15,7 @@ concurrency:
 
 jobs:
   update:
-    if: >-
-      github.event_name == 'schedule' ||
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     outputs:
