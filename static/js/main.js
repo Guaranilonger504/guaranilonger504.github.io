@@ -38,7 +38,15 @@ if(headings.length){
       .sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
     if(!visible)return;
     tocLinks.forEach(link=>link.removeAttribute("aria-current"));
-    linksById.get(visible.target.id)?.setAttribute("aria-current","location");
+    document.querySelectorAll(".article-toc li.is-active-branch")
+      .forEach(item=>item.classList.remove("is-active-branch"));
+    const currentLink=linksById.get(visible.target.id);
+    currentLink?.setAttribute("aria-current","location");
+    let branch=currentLink?.closest("li");
+    while(branch){
+      branch.classList.add("is-active-branch");
+      branch=branch.parentElement?.closest("li");
+    }
   },{rootMargin:"-15% 0px -70% 0px"});
   headings.forEach(heading=>observer.observe(heading));
 }

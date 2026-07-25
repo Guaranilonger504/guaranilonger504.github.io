@@ -99,9 +99,9 @@ footer {
   position: fixed;
   z-index: 20;
   top: 0;
-  right: 18px;
-  width: 11px;
-  height: 88px;
+  right: max(20px, calc((100vw - var(--wide)) / 2 - 34px));
+  width: 18px;
+  height: 96px;
   background: var(--ribbon);
   clip-path: polygon(0 0,100% 0,100% 100%,50% 88%,0 100%);
   opacity: .88;
@@ -310,7 +310,10 @@ footer {
 }
 
 .arrow { color: var(--muted); }
-.article { max-width: var(--max); }
+.article {
+  max-width: var(--max);
+  margin-inline: auto;
+}
 
 .article.has-toc {
   max-width: none;
@@ -458,6 +461,11 @@ footer {
   font-weight: 600;
 }
 
+.article-toc li.is-active-branch > a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .not-found { min-height: 72vh; padding: 120px 0; }
 
 .not-found .lead {
@@ -493,6 +501,7 @@ footer {
 }
 
 @media (max-width: 620px) {
+  .page-bookmark { right: 14px; width: 16px; height: 82px; }
   .site-header { flex-wrap: wrap; gap: 14px; padding: 18px 0; }
   .site-header nav { order: 3; width: 100%; }
   .header-actions { gap: 12px; }

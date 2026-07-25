@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{ $hasTOC := gt (len .TableOfContents) 34 }}
+{{ $toc := .TableOfContents }}
+{{ $toc = replaceRE `(<a href="#[^"]+">)<a[^>]+>` `$1` $toc }}
+{{ $toc = replaceRE `</a></a>` `</a>` $toc }}
 <article class="article{{ if $hasTOC }} has-toc{{ end }}">
   <header class="article-head">
     <a class="back" href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}返回首页{{ else }}Back home{{ end }}</a>
@@ -17,7 +20,7 @@
     {{ if $hasTOC }}
     <aside class="article-toc" id="article-toc" aria-label="{{ if eq site.Language.Lang "zh" }}文章目录{{ else }}Table of contents{{ end }}">
       <p class="toc-title">{{ if eq site.Language.Lang "zh" }}目录{{ else }}Contents{{ end }}</p>
-      {{ .TableOfContents }}
+      {{ $toc | safeHTML }}
     </aside>
     {{ end }}
   </div>
