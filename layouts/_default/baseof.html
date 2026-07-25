@@ -8,9 +8,12 @@
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}">{{ end }}
-  <script>document.documentElement.dataset.theme=localStorage.getItem("theme")||"auto"</script>
+  <script>
+    document.documentElement.dataset.theme=localStorage.getItem("theme")||"auto";
+    document.documentElement.dataset.toc=localStorage.getItem("toc")||"open";
+  </script>
 </head>
-<body>
+<body{{ if .IsPage }} class="article-page"{{ end }}>
   <header class="site-header">
     <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}">
       <span>{{ site.Title }}</span>
