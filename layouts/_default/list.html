@@ -1,17 +1,16 @@
 {{ define "main" }}
 <section class="page-head">
-  <p class="eyebrow">{{ if eq site.Language.Lang "zh" }}归档{{ else }}Archive{{ end }}</p>
+  <p class="eyebrow">{{ if eq site.Language.Lang "zh" }}沿途收集{{ else }}Collected along the way{{ end }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
 </section>
 <section class="post-list">
   {{ range .Pages.ByDate.Reverse }}
   <article class="post-row">
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+    {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ else }}<span class="post-kind">{{ .Section }}</span>{{ end }}
     <div><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Description | default .Summary }}</p></div>
-    <span class="arrow">↗</span>
+    <span class="arrow">→</span>
   </article>
   {{ end }}
 </section>
 {{ end }}
-

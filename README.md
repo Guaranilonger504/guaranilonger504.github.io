@@ -19,11 +19,11 @@ The site is available at <http://localhost:1313>.
 
 ## Writing
 
-Regular posts:
+Bookmarks:
 
 ```text
-content/posts/my-post.en.md
-content/posts/my-post.zh.md
+content/bookmarks/my-post.en.md
+content/bookmarks/my-post.zh.md
 ```
 
 English is the default language. Chinese pages are published under `/zh/`.
@@ -95,4 +95,3 @@ https://your-domain.example/paper-radar.xml
 
 Update `site.base_url` in `config/paper-radar.yaml` after configuring the final
 domain.
-

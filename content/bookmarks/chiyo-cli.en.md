@@ -1,5 +1,6 @@
 ---
 title: Chiyo CLI
+date: 2026-07-25
 description: A collection of small, focused, search-oriented command-line tools
 ---
 

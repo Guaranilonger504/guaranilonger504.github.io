@@ -1,14 +1,26 @@
 {{ define "main" }}
 <section class="hero">
-  <h1>Shiori Route</h1>
-  <p class="lead">{{ site.Params.description }}</p>
+  <div class="hero-copy">
+    <p class="eyebrow">{{ if eq site.Language.Lang "zh" }}一条偶尔绕远的路线{{ else }}Notes from a route with detours{{ end }}</p>
+    <h1>Shiori Route</h1>
+    <p class="lead">{{ site.Params.description }}</p>
+  </div>
+  <div class="current-status" aria-live="polite">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span id="current-status" data-status-url="{{ "data/statuses.json" | relURL }}">currently taking the scenic route</span>
+  </div>
 </section>
 <section class="latest">
-  <div class="section-title"><h2>{{ if eq site.Language.Lang "zh" }}最新文章{{ else }}Latest writing{{ end }}</h2><a href="{{ "posts/" | relLangURL }}">{{ if eq site.Language.Lang "zh" }}查看全部 →{{ else }}View all →{{ end }}</a></div>
+  <div class="section-title"><h2>{{ if eq site.Language.Lang "zh" }}最近的书签{{ else }}Recent bookmarks{{ end }}</h2><a href="{{ "bookmarks/" | relLangURL }}">{{ if eq site.Language.Lang "zh" }}全部书签 →{{ else }}All bookmarks →{{ end }}</a></div>
   <div class="card-grid">
-  {{ range first 4 (where site.RegularPages "Section" "posts") }}
-    <article class="post-card"><time>{{ .Date.Format "2006.01.02" }}</time><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary }}</p><span>↗</span></article>
+  {{ range first 4 (where site.RegularPages "Section" "bookmarks") }}
+    <article class="post-card">{{ if not .Date.IsZero }}<time>{{ .Date.Format "2006.01.02" }}</time>{{ end }}<h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary }}</p><span>→</span></article>
   {{ end }}
   </div>
+</section>
+<section class="route-links" aria-label="More routes">
+  <a href="{{ "papers/" | relLangURL }}"><span>01</span><strong>Paper Radar</strong><small>{{ if eq site.Language.Lang "zh" }}最近的研究信号{{ else }}Recent research signals{{ end }}</small></a>
+  <a href="{{ "side-quests/" | relLangURL }}"><span>02</span><strong>Side Quests</strong><small>{{ if eq site.Language.Lang "zh" }}主线之外{{ else }}Away from the main route{{ end }}</small></a>
+  <a href="{{ "marginalia/" | relLangURL }}"><span>03</span><strong>Marginalia</strong><small>{{ if eq site.Language.Lang "zh" }}写在页边的东西{{ else }}Notes written in the margins{{ end }}</small></a>
 </section>
 {{ end }}

@@ -1,4 +1,8 @@
 {{ define "main" }}
-<section class="not-found"><p class="eyebrow">404</p><h1>{{ if eq site.Language.Lang "zh" }}这里什么也没有。{{ else }}Nothing here yet.{{ end }}</h1><a href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}回到首页{{ else }}Go home{{ end }}</a></section>
+<section class="not-found">
+  <p class="eyebrow">404</p>
+  <h1>This bookmark leads nowhere.</h1>
+  <p class="lead">The page may have moved,<br>or perhaps it was never written.</p>
+  <a class="home-button" href="{{ site.Home.RelPermalink }}">Return to start →</a>
+</section>
 {{ end }}
-

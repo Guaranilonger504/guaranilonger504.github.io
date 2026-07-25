@@ -5,7 +5,7 @@
     <a class="back" href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}返回首页{{ else }}Back home{{ end }}</a>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
-    {{ if eq .Section "posts" }}
+    {{ if eq .Section "bookmarks" }}
     <div class="meta">
       {{ if not .Date.IsZero }}<time>{{ .Date.Format "2006.01.02" }}</time><span>·</span>{{ end }}
       <span>{{ .ReadingTime }} min</span>

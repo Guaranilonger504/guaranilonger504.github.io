@@ -24,21 +24,29 @@ enableGitInfo = false
     [languages.zh.params]
       description = "关于技术、创造与生活的双语笔记"
     [[languages.zh.menus.main]]
-      name = "首页"
+      name = "Start"
       pageRef = "/"
       weight = 10
     [[languages.zh.menus.main]]
-      name = "文章"
-      pageRef = "/posts"
+      name = "Bookmarks"
+      pageRef = "/bookmarks"
       weight = 20
     [[languages.zh.menus.main]]
-      name = "论文雷达"
+      name = "Paper Radar"
       pageRef = "/papers"
-      weight = 25
-    [[languages.zh.menus.main]]
-      name = "关于"
-      pageRef = "/about"
       weight = 30
+    [[languages.zh.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 40
+    [[languages.zh.menus.main]]
+      name = "Side Quests"
+      pageRef = "/side-quests"
+      weight = 50
+    [[languages.zh.menus.main]]
+      name = "Marginalia"
+      pageRef = "/marginalia"
+      weight = 60
 
   [languages.en]
     languageCode = "en-US"
@@ -48,21 +56,29 @@ enableGitInfo = false
     [languages.en.params]
       description = "Bilingual notes on technology, craft, and life"
     [[languages.en.menus.main]]
-      name = "Home"
+      name = "Start"
       pageRef = "/"
       weight = 10
     [[languages.en.menus.main]]
-      name = "Posts"
-      pageRef = "/posts"
+      name = "Bookmarks"
+      pageRef = "/bookmarks"
       weight = 20
     [[languages.en.menus.main]]
       name = "Paper Radar"
       pageRef = "/papers"
-      weight = 25
+      weight = 30
     [[languages.en.menus.main]]
       name = "About"
       pageRef = "/about"
-      weight = 30
+      weight = 40
+    [[languages.en.menus.main]]
+      name = "Side Quests"
+      pageRef = "/side-quests"
+      weight = 50
+    [[languages.en.menus.main]]
+      name = "Marginalia"
+      pageRef = "/marginalia"
+      weight = 60
 
 [markup]
   [markup.highlight]
