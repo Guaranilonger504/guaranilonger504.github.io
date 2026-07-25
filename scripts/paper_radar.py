@@ -42,10 +42,8 @@ def main() -> int:
     client = None
     if not (args.dry_run or args.fetch_only):
         api_key = os.environ.get("OPENAI_API_KEY")
-        if not api_key:
-            logging.error("OPENAI_API_KEY is not set")
-            return 2
-        client = OpenAI(api_key=api_key, timeout=config["limits"]["timeout_seconds"], max_retries=0)
+        if api_key:
+            client = OpenAI(api_key=api_key, timeout=config["limits"]["timeout_seconds"], max_retries=0)
     try:
         result = run_pipeline(
             root,
