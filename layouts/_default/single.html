@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="article">
+  <header class="article-head">
+    <a class="back" href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}返回首页{{ else }}Back home{{ end }}</a>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if eq .Section "posts" }}<div class="meta"><time>{{ .Date.Format "2006.01.02" }}</time><span>·</span><span>{{ .ReadingTime }} min</span></div>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}
+

@@ -1,0 +1,71 @@
+baseURL = "https://example.github.io/"
+title = "Shiori Route"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = false
+
+[pagination]
+  pagerSize = 8
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[params]
+  author = "Jingke"
+  description = "Notes on technology, craft, and everyday life."
+
+[languages]
+  [languages.zh]
+    languageCode = "zh-CN"
+    languageName = "中文"
+    title = "Shiori Route"
+    weight = 2
+    [languages.zh.params]
+      description = "关于技术、创造与生活的双语笔记"
+    [[languages.zh.menus.main]]
+      name = "首页"
+      pageRef = "/"
+      weight = 10
+    [[languages.zh.menus.main]]
+      name = "文章"
+      pageRef = "/posts"
+      weight = 20
+    [[languages.zh.menus.main]]
+      name = "论文雷达"
+      pageRef = "/papers"
+      weight = 25
+    [[languages.zh.menus.main]]
+      name = "关于"
+      pageRef = "/about"
+      weight = 30
+
+  [languages.en]
+    languageCode = "en-US"
+    languageName = "English"
+    title = "Shiori Route"
+    weight = 1
+    [languages.en.params]
+      description = "Bilingual notes on technology, craft, and life"
+    [[languages.en.menus.main]]
+      name = "Home"
+      pageRef = "/"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "Posts"
+      pageRef = "/posts"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "Paper Radar"
+      pageRef = "/papers"
+      weight = 25
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 30
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = false

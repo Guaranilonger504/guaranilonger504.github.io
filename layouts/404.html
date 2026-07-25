@@ -1,0 +1,4 @@
+{{ define "main" }}
+<section class="not-found"><p class="eyebrow">404</p><h1>{{ if eq site.Language.Lang "zh" }}这里什么也没有。{{ else }}Nothing here yet.{{ end }}</h1><a href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}回到首页{{ else }}Go home{{ end }}</a></section>
+{{ end }}
+

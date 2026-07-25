@@ -1,0 +1,7 @@
+.git
+.github
+public
+resources
+.venv
+.pytest_cache
+__pycache__

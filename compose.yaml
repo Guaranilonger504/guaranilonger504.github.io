@@ -1,0 +1,10 @@
+services:
+  site:
+    image: hugomods/hugo:exts-0.148.2
+    working_dir: /src
+    command: server --bind 0.0.0.0 --buildDrafts --disableFastRender
+    ports:
+      - "1313:1313"
+    volumes:
+      - .:/src
+

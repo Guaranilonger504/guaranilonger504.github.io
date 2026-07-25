@@ -1,0 +1,87 @@
+arxiv:
+  api_url: https://export.arxiv.org/api/query
+  categories:
+    - cs.CR
+    - cs.DC
+    - cs.NI
+    - cs.OS
+    - cs.PF
+    - cs.PL
+    - cs.AR
+    - cs.LG
+  lookback_hours: 48
+  max_candidates: 100
+
+models:
+  screening: gpt-5-mini
+  analysis: gpt-5-mini
+
+limits:
+  max_screened: 60
+  screening_batch_size: 15
+  max_recommended: 10
+  max_deep_analysis: 3
+  max_output_tokens: 12000
+  timeout_seconds: 90
+  max_retries: 3
+
+thresholds:
+  relevance: 7
+  novelty: 8
+  transferability: 8
+
+research_profile:
+  primary_topics:
+    - secure multiparty computation
+    - secure computation
+    - MP-SPDZ
+    - MPC compiler
+    - MPC runtime
+    - WAN latency
+    - communication rounds
+    - round complexity
+    - dependency-aware scheduling
+    - DAG scheduling
+    - batching
+    - round coalescing
+    - pipeline execution
+    - network-aware runtime
+    - protocol selection
+    - secure LLM inference
+    - privacy-preserving machine learning
+  adjacent_topics:
+    - distributed runtime scheduling
+    - compiler instruction scheduling
+    - dataflow scheduling
+    - query optimization
+    - critical-path scheduling
+    - pipeline parallelism
+    - online optimization
+    - adaptive systems
+    - network-aware systems
+    - latency hiding
+    - communication and computation overlap
+    - RPC batching
+    - collective communication
+    - distributed graph execution
+    - performance modeling
+    - learned cost models
+    - LLM serving systems
+  low_priority_topics:
+    - generic blockchain applications
+    - generic intrusion detection
+    - image watermarking
+    - model accuracy only
+
+versions:
+  analyze_new_papers: true
+  analyze_revisions: false
+
+outputs:
+  markdown_directory: content/papers
+  json_directory: static/data/paper-radar
+  rss_path: static/paper-radar.xml
+  state_path: data/processed_papers.json
+
+site:
+  base_url: https://example.github.io/

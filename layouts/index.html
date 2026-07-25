@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="hero">
+  <h1>Shiori Route</h1>
+  <p class="lead">{{ site.Params.description }}</p>
+</section>
+<section class="latest">
+  <div class="section-title"><h2>{{ if eq site.Language.Lang "zh" }}最新文章{{ else }}Latest writing{{ end }}</h2><a href="{{ "posts/" | relLangURL }}">{{ if eq site.Language.Lang "zh" }}查看全部 →{{ else }}View all →{{ end }}</a></div>
+  <div class="card-grid">
+  {{ range first 4 (where site.RegularPages "Section" "posts") }}
+    <article class="post-card"><time>{{ .Date.Format "2006.01.02" }}</time><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary }}</p><span>↗</span></article>
+  {{ end }}
+  </div>
+</section>
+{{ end }}

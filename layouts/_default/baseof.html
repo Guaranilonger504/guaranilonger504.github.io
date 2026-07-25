@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description | default site.Params.description }}">
+  <meta name="color-scheme" content="light dark">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}">{{ end }}
+  <script>document.documentElement.dataset.theme=localStorage.getItem("theme")||"auto"</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}">
+      <span>{{ site.Title }}</span>
+    </a>
+    <nav aria-label="Main navigation">
+      {{ range site.Menus.main }}<a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ end }}
+    </nav>
+    <div class="header-actions">
+      {{ range .AllTranslations }}{{ if ne .Language.Lang site.Language.Lang }}<a class="language" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>{{ end }}{{ end }}
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">◐</button>
+    </div>
+  </header>
+  <main>{{ block "main" . }}{{ end }}</main>
+  <footer>
+    <span>© {{ now.Year }} Jingke</span>
+    <span>Built with Hugo · <a href="{{ "index.xml" | relLangURL }}">RSS</a></span>
+  </footer>
+  <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[project]
+name = "shiori-paper-radar"
+version = "0.1.0"
+description = "Deterministic arXiv research radar for the Shiori Route Hugo site"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28,<1",
+  "openai>=1.100,<3",
+  "pydantic>=2.11,<3",
+  "python-dateutil>=2.9,<3",
+  "pyyaml>=6.0,<7",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.4,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]
