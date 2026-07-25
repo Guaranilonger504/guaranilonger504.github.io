@@ -3,8 +3,6 @@ title: Chiyo CLI
 description: A collection of small, focused, search-oriented command-line tools
 ---
 
-# Chiyo CLI
-
 > Reach files, projects, applications, bookmarks, and other known objects faster from the terminal.
 
 Chiyo CLI is a personal command-line toolbox for macOS. It brings common workflows together through one simple pattern:

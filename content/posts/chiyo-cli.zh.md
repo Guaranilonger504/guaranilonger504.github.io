@@ -3,8 +3,6 @@ title: Chiyo CLI
 description: 一组小巧、专注、以搜索为核心的命令行工具
 ---
 
-# Chiyo CLI
-
 > 更快地从终端找到文件、项目、应用、书签和其他已知对象。
 
 Chiyo CLI 是一个面向 macOS 的个人命令行工具箱。它将常用工作流统一为一个简单的模式：
