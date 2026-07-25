@@ -305,6 +305,7 @@ html[data-toc="closed"] .article-toc {
   border-left: 3px solid var(--ink);
   background: var(--code);
   color: var(--muted);
+  font-style: italic;
 }
 
 .prose blockquote p {
