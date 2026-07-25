@@ -45,8 +45,6 @@ a {
   text-decoration: none;
 }
 
-a:hover { text-decoration: underline; }
-
 .site-header,
 main,
 footer {
@@ -65,19 +63,9 @@ footer {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   margin-right: auto;
   font-weight: 600;
   letter-spacing: -.01em;
-}
-
-.bookmark-icon {
-  position: relative;
-  display: inline-block;
-  width: 11px;
-  height: 17px;
-  background: var(--ribbon);
-  clip-path: polygon(0 0,100% 0,100% 100%,50% 72%,0 100%);
 }
 
 .site-header nav,
@@ -94,6 +82,41 @@ footer {
 }
 
 .site-header nav a[aria-current="page"] { color: var(--ink); }
+
+.site-header nav a,
+.language,
+.back,
+.section-title a,
+.post-card h3 a,
+.post-row h2 a,
+.prose a,
+footer a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size .28s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible,
+.language:hover,
+.language:focus-visible,
+.back:hover,
+.back:focus-visible,
+.section-title a:hover,
+.section-title a:focus-visible,
+.post-card h3 a:hover,
+.post-card h3 a:focus-visible,
+.post-row h2 a:hover,
+.post-row h2 a:focus-visible,
+.prose a:hover,
+.prose a:focus-visible,
+footer a:hover,
+footer a:focus-visible {
+  background-size: 100% 1px;
+  text-decoration: none;
+}
 
 .page-bookmark {
   position: fixed;
@@ -389,8 +412,7 @@ footer {
 }
 
 .prose a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  padding-bottom: 2px;
 }
 
 .prose code {
@@ -565,6 +587,7 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  a { transition: none !important; }
   .hero h1,
   .page-head h1,
   .article-head h1,
