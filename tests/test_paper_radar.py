@@ -213,6 +213,8 @@ def test_markdown_json_and_rss_generation():
     assert "今日重点推荐" in markdown
     assert DISCLAIMER_ZH in markdown
     assert "以下分析" in markdown
+    assert "- **作者：** Alice" in markdown
+    assert not any(line.endswith("  ") for line in markdown.splitlines())
     document = json_document(date(2026, 7, 25), {p.uid: p}, [s], {p.uid: d}, stats)
     assert document["papers"][0]["analysis_basis"] == "title_and_abstract_only"
     rss = render_rss([document], "https://example.test/")
