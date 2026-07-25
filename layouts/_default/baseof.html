@@ -11,7 +11,6 @@
   {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}">{{ end }}
   <script>
     document.documentElement.dataset.theme=localStorage.getItem("theme")||"auto";
-    document.documentElement.dataset.toc=localStorage.getItem("toc")||"open";
   </script>
 </head>
 <body{{ if .IsPage }} class="article-page"{{ end }}>

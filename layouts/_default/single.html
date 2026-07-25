@@ -5,15 +5,12 @@
     <a class="back" href="{{ site.Home.RelPermalink }}">← {{ if eq site.Language.Lang "zh" }}返回首页{{ else }}Back home{{ end }}</a>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
-    <div class="article-tools">
-      {{ if eq .Section "posts" }}<div class="meta"><time>{{ .Date.Format "2006.01.02" }}</time><span>·</span><span>{{ .ReadingTime }} min</span></div>{{ end }}
-      {{ if $hasTOC }}
-      <button class="toc-toggle" type="button" aria-controls="article-toc" aria-expanded="true">
-        <span class="toc-toggle-hide">{{ if eq site.Language.Lang "zh" }}隐藏目录{{ else }}Hide contents{{ end }}</span>
-        <span class="toc-toggle-show">{{ if eq site.Language.Lang "zh" }}显示目录{{ else }}Show contents{{ end }}</span>
-      </button>
-      {{ end }}
+    {{ if eq .Section "posts" }}
+    <div class="meta">
+      {{ if not .Date.IsZero }}<time>{{ .Date.Format "2006.01.02" }}</time><span>·</span>{{ end }}
+      <span>{{ .ReadingTime }} min</span>
     </div>
+    {{ end }}
   </header>
   <div class="article-grid">
     <div class="prose">{{ .Content }}</div>

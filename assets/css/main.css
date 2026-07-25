@@ -203,7 +203,9 @@ footer {
 .arrow { color: var(--muted); }
 .article { max-width: var(--max); }
 
-.article-page main {
+.article-page .site-header,
+.article-page main,
+.article-page footer {
   width: min(1060px, calc(100% - 40px));
 }
 
@@ -211,66 +213,18 @@ footer {
   max-width: none;
 }
 
-.article.has-toc .article-head {
-  max-width: var(--max);
-  margin: 0 auto;
-}
-
 .meta {
   display: flex;
   gap: 8px;
-}
-
-.article-tools {
-  min-height: 28px;
   margin-top: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.toc-toggle {
-  padding: 3px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-size: .78rem;
-  cursor: pointer;
-}
-
-.toc-toggle:hover {
-  color: var(--ink);
-}
-
-.toc-toggle-show {
-  display: none;
-}
-
-html[data-toc="closed"] .toc-toggle-hide {
-  display: none;
-}
-
-html[data-toc="closed"] .toc-toggle-show {
-  display: inline;
 }
 
 .article-grid {
   display: grid;
   grid-template-columns: minmax(0, 660px) 220px;
-  justify-content: center;
+  justify-content: start;
   align-items: start;
   gap: 70px;
-}
-
-html[data-toc="closed"] .article-grid {
-  grid-template-columns: minmax(0, 660px);
-}
-
-html[data-toc="closed"] .article-toc {
-  display: none;
 }
 
 .prose {
@@ -425,7 +379,9 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .article-page main {
+  .article-page .site-header,
+  .article-page main,
+  .article-page footer {
     width: min(var(--max), calc(100% - 40px));
   }
 

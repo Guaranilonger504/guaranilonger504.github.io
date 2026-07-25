@@ -6,20 +6,6 @@ button?.addEventListener("click",()=>{
   localStorage.setItem("theme",next);
 });
 
-const tocButton=document.querySelector(".toc-toggle");
-const setTocState=(state)=>{
-  document.documentElement.dataset.toc=state;
-  localStorage.setItem("toc",state);
-  tocButton?.setAttribute("aria-expanded",String(state==="open"));
-};
-
-if(tocButton){
-  setTocState(document.documentElement.dataset.toc);
-  tocButton.addEventListener("click",()=>{
-    setTocState(document.documentElement.dataset.toc==="open"?"closed":"open");
-  });
-}
-
 const tocLinks=[...document.querySelectorAll(".article-toc a[href^='#']")];
 const headings=tocLinks
   .map(link=>document.getElementById(decodeURIComponent(link.hash.slice(1))))
